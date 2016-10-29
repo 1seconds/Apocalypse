@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using BridgeEnum;
 
 [System.Serializable]
 public class Object
@@ -305,4 +306,31 @@ public class BlockManager : MonoBehaviour
         }
         return true;
     }
+
+	public bool IsEnemyMovable(Enemy enemy, Direction dir)
+	{
+		switch (dir) {
+		//Left
+		case Direction.DIR_LEFT:
+			if (mapFrame[(int)enemy.curPos.x, (int)enemy.curPos.y - 1] == 0)
+				return false;
+			break;
+			//Up
+		case Direction.DIR_UP:
+			if (mapFrame[(int)enemy.curPos.x - 1, (int)enemy.curPos.y] == 0)
+				return false;
+			break;
+			//Right
+		case Direction.DIR_RIGHT:
+			if (mapFrame[(int)enemy.curPos.x, (int)enemy.curPos.y + 1] == 0)
+				return false;
+			break;
+			//Down
+		case Direction.DIR_DOWN:
+			if (mapFrame[(int)enemy.curPos.x + 1, (int)enemy.curPos.y] == 0)
+				return false;
+			break;
+		}
+		return true;
+	}
 }

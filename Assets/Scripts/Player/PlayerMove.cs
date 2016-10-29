@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
         
         if (blockManager.IsPlayerMovable(1))
         {
-            LeanTween.moveLocalY(this.gameObject, this.transform.position.y + 0.853333f, moveDuration).setOnComplete(UpdatePlayerState);
+            LeanTween.moveLocalY(this.gameObject, this.transform.position.y + 0.55f, moveDuration).setOnComplete(UpdatePlayerState);
             this.curPlayerPos.x -= 1;
             blockManager.CurrentBlock(0,1);
         }
@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
         
         if (blockManager.IsPlayerMovable(3))
         {
-            LeanTween.moveLocalY(this.gameObject, this.transform.position.y - 0.853333f, moveDuration).setOnComplete(UpdatePlayerState);
+            LeanTween.moveLocalY(this.gameObject, this.transform.position.y - 0.55f, moveDuration).setOnComplete(UpdatePlayerState);
             this.curPlayerPos.x += 1;
             blockManager.CurrentBlock(0, -1);
         }
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
         
         if(blockManager.IsPlayerMovable(0))
         {
-            LeanTween.moveLocalX(this.gameObject, this.transform.position.x - 0.853333f, moveDuration).setOnComplete(UpdatePlayerState);
+            LeanTween.moveLocalX(this.gameObject, this.transform.position.x - 0.55f, moveDuration).setOnComplete(UpdatePlayerState);
             this.curPlayerPos.y -= 1;
             blockManager.CurrentBlock(-1, 0);
         }
@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         
         if (blockManager.IsPlayerMovable(2))
         {
-            LeanTween.moveLocalX(this.gameObject, this.transform.position.x + 0.853333f, moveDuration).setOnComplete(UpdatePlayerState);
+            LeanTween.moveLocalX(this.gameObject, this.transform.position.x + 0.55f, moveDuration).setOnComplete(UpdatePlayerState);
             this.curPlayerPos.y += 1;
             blockManager.CurrentBlock(1, 0);
         }
