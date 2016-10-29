@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour {
 
 	BlockManager blockManager;
 
+	Sprite[] sprites = new Sprite[4];
+	SpriteRenderer sr;
+
 	public void Init(int x, int y)
 	{
 		curPos = new Vector2 (x, y);
@@ -23,6 +26,15 @@ public class Enemy : MonoBehaviour {
 		curDirection = Direction.DIR_UP;
 		blockManager = Camera.main.gameObject.GetComponent<BlockManager>();
 
+		sprites [0] = Resources.Load ("Images/Statue_left.png") as Sprite;
+		sprites [1] = Resources.Load ("Images/Statue_back.png") as Sprite;
+		sprites [2] = Resources.Load ("Images/Statue_right.png") as Sprite;
+		sprites [3] = Resources.Load ("Images/Statue_front.png") as Sprite;
+
+		sr = this.GetComponent<SpriteRenderer> ();
+		sr.sprite = sprites [1];
+
+
 		StartCoroutine ("MoveRoutine");
 	}
 
@@ -30,7 +42,7 @@ public class Enemy : MonoBehaviour {
 	{
 
 		while (true) {
-
+			
 			yield return new WaitForSeconds (moveCooltime);
 
 			Direction leftward, rightward, backward;
@@ -88,6 +100,21 @@ public class Enemy : MonoBehaviour {
 			} else if(backward != Direction.DIR_NONE){
 				Move (backward);
 				curDirection = backward;
+			}
+
+			switch (curDirection) {
+			case Direction.DIR_LEFT:
+				sr.sprite = sprites [0];
+				break;
+			case Direction.DIR_UP:
+				sr.sprite = sprites [1];
+				break;
+			case Direction.DIR_RIGHT:
+				sr.sprite = sprites [2];
+				break;
+			case Direction.DIR_DOWN:
+				sr.sprite = sprites [3];
+				break;
 			}
 		}
 	}
