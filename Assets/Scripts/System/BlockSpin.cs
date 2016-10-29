@@ -36,9 +36,12 @@ public class BlockSpin : MonoBehaviour
     {
         //Debug.Log(blockmanager.currentBlockNum - 10 + (2 * blockmanager.n));
         //Debug.Log(Convert.ToInt32(gameObject.name) + 2);
+<<<<<<< HEAD
 
 		if (blockmanager.IsEnemyOnTheBlock (Convert.ToInt32 (gameObject.name) - 1))
 			return;
+=======
+>>>>>>> 9b15c4acd3ad5f00a4c8c51f409977db85db7885
 
         if(Convert.ToInt32(gameObject.name) + 2 != blockmanager.currentBlockNum - 10 + (2 * blockmanager.n))
         {
