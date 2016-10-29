@@ -12,24 +12,24 @@ public class Enemy : MonoBehaviour {
 
 	BlockManager blockManager;
 
-	Sprite[] sprites = new Sprite[4];
+	public Sprite[] sprites = new Sprite[4];
 	SpriteRenderer sr;
 
 	public void Init(int x, int y)
 	{
 		curPos = new Vector2 (x, y);
 
-		this.transform.position = new Vector2 (-6.95f + 0.55f * y, 4.05f - 0.55f * x);
+		this.transform.position = new Vector2 (-6.95f + 0.55f * y, 4.6f - 0.55f * x);
 	}
 
 	void Start () {
 		curDirection = Direction.DIR_UP;
 		blockManager = Camera.main.gameObject.GetComponent<BlockManager>();
 
-		sprites [0] = Resources.Load ("Images/Statue_left.png") as Sprite;
-		sprites [1] = Resources.Load ("Images/Statue_back.png") as Sprite;
-		sprites [2] = Resources.Load ("Images/Statue_right.png") as Sprite;
-		sprites [3] = Resources.Load ("Images/Statue_front.png") as Sprite;
+		sprites [0] = Resources.Load ("Images/Statue_left", typeof(Sprite)) as Sprite;
+		sprites [1] = Resources.Load ("Images/Statue_back", typeof(Sprite)) as Sprite;
+		sprites [2] = Resources.Load ("Images/Statue_right", typeof(Sprite)) as Sprite;
+		sprites [3] = Resources.Load ("Images/Statue_front", typeof(Sprite)) as Sprite;
 
 		sr = this.GetComponent<SpriteRenderer> ();
 		sr.sprite = sprites [1];
