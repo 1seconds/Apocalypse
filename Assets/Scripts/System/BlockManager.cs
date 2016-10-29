@@ -20,8 +20,12 @@ public class BlockManager : MonoBehaviour
     public int n = 0;
     public int currentBlockNum;
 
+	public EnemyManager enemyManager;
+
     void Start()
     {
+		enemyManager = GameObject.Find ("EnemyManager").GetComponent<EnemyManager> ();
+
         for (int i = 0; i < blockInfo.Length; i++)
         {
             blockInfo[i].block = gameObject.GetComponent<BlockCollection>().blockNum[i];      //해당 블럭
@@ -332,5 +336,21 @@ public class BlockManager : MonoBehaviour
 			break;
 		}
 		return true;
+	}
+
+	public bool IsEnemyOnTheBlock(int blockIndex)
+	{
+		for (int i = 0; i < enemyManager.enemies.Count; i++) {
+			int x = ((int)enemyManager.enemies [i].curPos.x-1) / 3;
+			int y = ((int)enemyManager.enemies [i].curPos.y-1) / 3;
+
+
+			int enemyBlockIndex = x * 8 + y;
+
+			if (blockIndex == enemyBlockIndex)
+				return true;
+		}
+
+		return false;
 	}
 }

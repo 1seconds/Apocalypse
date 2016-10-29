@@ -34,14 +34,17 @@ public class BlockSpin : MonoBehaviour
 
     void OnMouseUp()
     {
-        Debug.Log(blockmanager.currentBlockNum - 10 + (2 * blockmanager.n));
-        Debug.Log(Convert.ToInt32(gameObject.name) + 2);
+        //Debug.Log(blockmanager.currentBlockNum - 10 + (2 * blockmanager.n));
+        //Debug.Log(Convert.ToInt32(gameObject.name) + 2);
+
+		if (blockmanager.IsEnemyOnTheBlock (Convert.ToInt32 (gameObject.name) - 1))
+			return;
 
         if(Convert.ToInt32(gameObject.name) + 2 != blockmanager.currentBlockNum - 10 + (2 * blockmanager.n))
         {
             if (!isenterCoroutine)
                 StartCoroutine(StartSpin());
-        }
+		}
 
         else
             blockmanager.DoNotSpin();
@@ -59,7 +62,7 @@ public class BlockSpin : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        blockmanager.DebugLog(Convert.ToInt32(gameObject.name) - 1);
+        //blockmanager.DebugLog(Convert.ToInt32(gameObject.name) - 1);
         isenterCoroutine = false;
         //변환
     }
