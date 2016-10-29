@@ -9,7 +9,8 @@ public class BlockSpin : MonoBehaviour
     private bool isenterCoroutine = false;
     [HideInInspector] public int randomNum;      //블럭 난수
     [HideInInspector] public int randomNum2;     //블럭 회전값 난수
-
+    public AudioClip clickSound;
+    public AudioSource dummy ;
     BlockManager blockmanager;
 
     void Awake()
@@ -21,6 +22,7 @@ public class BlockSpin : MonoBehaviour
 
     void Start()
     {
+        dummy = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
         blockmanager = Camera.main.gameObject.GetComponent<BlockManager>();
         
         for (int i =0; i<block.Length;i++)
@@ -40,7 +42,11 @@ public class BlockSpin : MonoBehaviour
         if(Convert.ToInt32(gameObject.name) + 2 != blockmanager.currentBlockNum - 10 + (2 * blockmanager.n))
         {
             if (!isenterCoroutine)
+            {
                 StartCoroutine(StartSpin());
+                dummy.PlayOneShot(clickSound);
+            }
+                
         }
 
         else
@@ -59,7 +65,7 @@ public class BlockSpin : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        blockmanager.DebugLog(Convert.ToInt32(gameObject.name) - 1);
+        //blockmanager.DebugLog(Convert.ToInt32(gameObject.name) - 1);
         isenterCoroutine = false;
         //변환
     }

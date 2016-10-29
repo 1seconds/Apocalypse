@@ -17,8 +17,9 @@ public class EnemyManager : MonoBehaviour {
 	{
 		for (int i = 0; i < enemyCount; i++) {
 			GameObject o = Instantiate (enemyPrefab) as GameObject;
+            enemyPrefab.tag = "Enemy";
 
-			int randX = Random.Range (0, 4)*3 + 2;
+            int randX = Random.Range (0, 4)*3 + 2;
 			int randY = Random.Range (4, 8)*3 + 2;
 
 			o.GetComponent<Enemy> ().Init (randX, randY);

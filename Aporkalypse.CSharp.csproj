@@ -90,15 +90,17 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingAllCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
-    <Compile Include="Assets\Scripts\Ememy\EnemyGod.cs" />
-    <Compile Include="Assets\Scripts\Ememy\EnemyMove.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Etc\ItemCollection.cs" />
     <Compile Include="Assets\Scripts\Etc\UI_Mag.cs" />
+    <Compile Include="Assets\Scripts\Player\DieScript.cs" />
     <Compile Include="Assets\Scripts\Player\GetItem.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\System\BlockCollection.cs" />
     <Compile Include="Assets\Scripts\System\BlockManager.cs" />
     <Compile Include="Assets\Scripts\System\BlockSpin.cs" />
+    <Compile Include="Assets\Scripts\System\BridgeEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
