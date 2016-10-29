@@ -16,6 +16,7 @@ public class BlockManager : MonoBehaviour
     public Vector2 playerPos = new Vector2(0, 0);
     public int xtemp = 1;
     public int ytemp = 1;
+    public int n = 0;
     public int currentBlockNum;
 
     void Start()
@@ -224,6 +225,7 @@ public class BlockManager : MonoBehaviour
         {
             currentBlockNum -= 10;
             ytemp = 0;
+            n += 1;
         }
             
 
@@ -232,6 +234,7 @@ public class BlockManager : MonoBehaviour
         {
             currentBlockNum += 10;
             ytemp = 2;
+            n -= 1;
         }
             
     }
