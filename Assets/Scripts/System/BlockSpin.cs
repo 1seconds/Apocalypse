@@ -34,8 +34,8 @@ public class BlockSpin : MonoBehaviour
 
     void OnMouseUp()
     {
-        Debug.Log(blockmanager.currentBlockNum - 10 + (2 * blockmanager.n));
-        Debug.Log(Convert.ToInt32(gameObject.name) + 2);
+        //Debug.Log(blockmanager.currentBlockNum - 10 + (2 * blockmanager.n));
+        //Debug.Log(Convert.ToInt32(gameObject.name) + 2);
 
         if(Convert.ToInt32(gameObject.name) + 2 != blockmanager.currentBlockNum - 10 + (2 * blockmanager.n))
         {
